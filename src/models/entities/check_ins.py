@@ -8,6 +8,5 @@ class Check_ins(Base):
 
   id = Column(Integer, nullable=False, autoincrement=True)
   created_at = Column(DateTime, nullable=False, server_default=func.current_timestamp)
-  attendee_id = Column(String, nullable=False, ForeignKey=True)
+  attendee_id = Column(String, ForeignKey("attendees.id"), nullable=False)
   attendee = Relationship("attendee", back_populates="check_ins")
-  

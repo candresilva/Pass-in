@@ -3,10 +3,7 @@ from sqlalchemy.orm import sessionmaker
 
 class DBConnectionHandler:
     def __init__(self) -> None:
-        self.__connection_string = "{}:///{}".format(
-            "sqlite",
-            "storage.db"
-        )
+        self.__connection_string = "{}:///{}".format("sqlite","storage.db")
         self.__engine = None
         self.__session = None
 
@@ -18,11 +15,10 @@ class DBConnectionHandler:
     
     def __enter__(self):
         session_maker = sessionmaker()
-        self.__session = session_maker(bind = self__engine)
+        self.__session = session_maker(bind = self.__engine)
         return (self)
 
     def __exit__(self, exc_type, exc_vale, exc_tb):
         self.__session.close()
 
-#with DBConnectionHandler() as dbconn:
-    
+db_connection_handler = DBConnectionHandler()
