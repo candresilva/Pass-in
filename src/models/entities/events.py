@@ -8,4 +8,4 @@ class Events(Base):
   title = Column(String, nullable=False)
   details = Column(String)
   slug = Column(String, nullable=False)
-  maximum_attendee = Column(Integer)
+  maximum_attendees = Column(Integer)
