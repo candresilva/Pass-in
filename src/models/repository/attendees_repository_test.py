@@ -4,13 +4,13 @@ from .attendees_repository import AttendeesRepository
 
 db_connection_handler.__connect_to_db__()
 
-@pytest.mark.skip(reason = "Já inserido. Não quero testar novamente")
+#@pytest.mark.skip(reason = "Já inserido. Não quero testar novamente")
 def test_insert_attendee():
         attendee_info = {
-            "uuid" : "mais um",
-            "name" : "Antonio Cesar",
-            "email" : "antony@email.com",
-            "event_id" : "2o participante"
+            "uuid" : "yo-edu",
+            "name" : "Eduardo Bezerra",
+            "email" : "eduzerra@email.com",
+            "event_id" : "bbf293d0-7518-4663-9a29-c0f0cddb3fe8"
         }
         attendee_repository = AttendeesRepository()
         response = attendee_repository.insert_attendee(attendee_info)
