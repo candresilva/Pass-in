@@ -57,10 +57,12 @@ class EventsRepository:
             if len(event_count):
                 return {
                     "Maximum attendees": event_count[0].maximum_attendees,
-                    "Attendees amount": len(event_count)
+                    "Attendees amount": len(event_count),
+                    "Seats available": (event_count[0].maximum_attendees- len(event_count))
                 }
             else:
                 return {
                     "Maximum attendees": 0,
-                    "Attendees amount": 0
+                    "Attendees amount": 0,
+                    "Seats available":"N/A"
                 }
