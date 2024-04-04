@@ -1,8 +1,6 @@
-from typing import Dict
 from src.models.settings.connection import db_connection_handler
 from src.models.entities.check_ins import Checkins
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy.exc import NoResultFound
 
 
 class CheckInRepository:
