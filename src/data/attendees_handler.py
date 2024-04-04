@@ -42,4 +42,26 @@ class AttendeeHandler:
             )
         except:
             raise Exception("Participante não encontrado")
+        
+    def find_attendees_by_event(self, http_request: HttpRequest) -> HttpResponse:
+        params = http_request.params["event_id"]
+        attendees = self.__attendee_repository.get_attendees_by_eventID(params)
+        if not attendees:
+            raise Exception("Participante não encontrado")
+        formatted_response = []
+        for attendee in attendees:
+            formatted_response.append(
+                {
+                    "id": attendee.id,
+                    "name": attendee.name,
+                    "email": attendee.email,
+                    "checkedinAt": attendee.checkedinAt,
+                    "subscribedAt": attendee.subscribedAt
+                }
+            )
+        return HttpResponse(
+            body = {
+                "attendees":formatted_response},
+            status_code=200
+        )
 
